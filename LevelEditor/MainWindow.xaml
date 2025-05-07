@@ -1,0 +1,35 @@
+﻿<Window x:Class="TileEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Tile Level Editor" Height="600" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5">
+            <TextBlock Text="Tile:" VerticalAlignment="Center" Margin="5"/>
+            <ComboBox x:Name="TileTypeComboBox" Width="100" Margin="5" SelectedIndex="0">
+                <ComboBoxItem>None</ComboBoxItem>
+                <ComboBoxItem>Ground</ComboBoxItem>
+                <ComboBoxItem>Spike</ComboBoxItem>
+                <ComboBoxItem>Platform</ComboBoxItem>
+                <ComboBoxItem>Flag</ComboBoxItem>
+            </ComboBox>
+            <TextBlock Text="Width:" VerticalAlignment="Center" Margin="5"/>
+            <TextBox x:Name="WidthBox" Width="40" Margin="5" Text="24"/>
+            <TextBlock Text="Height:" VerticalAlignment="Center" Margin="5"/>
+            <TextBox x:Name="HeightBox" Width="40" Margin="5" Text="24"/>
+            <Button Content="Generate" Margin="5" Click="GenerateGrid"/>
+            <Button Content="Export" Margin="5" Click="ExportGrid"/>
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="5">
+            <UniformGrid x:Name="GridPanel"/>
+        </ScrollViewer>
+
+        <TextBox x:Name="OutputTextBox" Grid.Row="2" Margin="5" Height="150" 
+                 AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/>
+    </Grid>
+</Window>
